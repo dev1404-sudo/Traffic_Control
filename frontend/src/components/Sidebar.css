@@ -1,0 +1,24 @@
+.sidebar {
+  width: 220px;
+  background: #1e293b;
+  height: 100vh;
+  padding: 20px;
+  color: white;
+  position: fixed;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background: #334155;
+  border-radius: 6px;
+  padding-left: 10px;
+}
