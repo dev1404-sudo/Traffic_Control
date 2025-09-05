@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Vehicles from "./pages/Vehicles";
+import Wallet from "./pages/Wallet";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
@@ -34,6 +35,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Vehicles />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/wallet"
+              element={
+                <PrivateRoute>
+                  <Wallet />
                 </PrivateRoute>
               }
             />

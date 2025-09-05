@@ -1,4 +1,4 @@
- import { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink } from "react-router-dom";
 
@@ -29,7 +29,31 @@ export default function Navbar() {
                 >
                   Dashboard
                 </NavLink>
+
+                <NavLink
+                  to="/vehicles"
+                  className={({ isActive }) =>
+                    `hover:text-yellow-300 ${
+                      isActive ? "font-semibold text-yellow-300" : ""
+                    }`
+                  }
+                >
+                  Vehicles
+                </NavLink>
+
+                <NavLink
+                  to="/wallet"
+                  className={({ isActive }) =>
+                    `hover:text-yellow-300 ${
+                      isActive ? "font-semibold text-yellow-300" : ""
+                    }`
+                  }
+                >
+                  💳 Wallet
+                </NavLink>
+
                 <span className="text-sm">Hello, {user.name}</span>
+
                 <button
                   onClick={logout}
                   className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded"
@@ -85,6 +109,20 @@ export default function Navbar() {
               >
                 Dashboard
               </NavLink>
+              <NavLink
+                to="/vehicles"
+                className="block hover:text-yellow-300"
+                onClick={() => setIsOpen(false)}
+              >
+                Vehicles
+              </NavLink>
+              <NavLink
+                to="/wallet"
+                className="block hover:text-yellow-300"
+                onClick={() => setIsOpen(false)}
+              >
+                💳 Wallet
+              </NavLink>
               <span className="block text-sm">Hello, {user.name}</span>
               <button
                 onClick={() => {
@@ -119,4 +157,4 @@ export default function Navbar() {
     </nav>
   );
 }
-
+ 

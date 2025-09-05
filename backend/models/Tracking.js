@@ -1,18 +1,48 @@
-import mongoose from "mongoose";
+ import mongoose from "mongoose";
 
-const trackingSchema = new mongoose.Schema(
-  {
-    vehicle: { type: mongoose.Schema.Types.ObjectId, ref: "Vehicle", required: true },
-    lat: { type: Number, required: true },
-    lng: { type: Number, required: true },
-    speed: { type: Number, default: 0 },
-    congestionLevel: { type: Number, default: 0 }, // ✅ now available
-    timestamp: { type: Date, default: Date.now },
-  },
-  {
-    timestamps: true,
-    id: false,
-  }
-);
+const trackingSchema = new mongoose.Schema({
+    vehicleId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Vehicle",
+        required: true
+    },
 
-export default mongoose.model("Tracking", trackingSchema);
+    location: {
+        type: {
+            type: String,
+            enum: ["Point"],
+            default: "Point"
+        },
+        coordinates: {
+            type: [Number], 
+            required: true
+        }
+    },
+
+    speed : {
+        type: Number,
+        default: 0 
+    },
+
+    congestionLevel : {
+        type: Number,
+        deafult: 0
+    },
+
+    timestamp: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+trackingSchema.index({ location: "2dsphere" });
+
+trackingSchema.virtual("lat").get(function () {
+  return this.location.coordinates[1];
+});
+
+trackingSchema.virtual("lng").get(function () {
+  return this.location.coordinates[0];
+});
+const Tracking = mongoose.model("Tracking",trackingSchema);
+export { Tracking };

@@ -1,6 +1,8 @@
 // routes/violationRoutes.js
  import express from "express";
-import Violation from "../models/Violation.js";
+ import { issueFine, listFines, updateFine } from "../controllers/fineController.js";
+import { protect } from "../middlewares/authMiddleware.js";
+import { isAdmin } from "../middlewares/adminMiddleware.js";
 
 const router = express.Router();
 
@@ -18,5 +20,17 @@ router.get("/stats", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+
+/* ADMIN ROUTES */
+router.post("/issue", protect, isAdmin, issueFine); 
+router.get("/list", protect, isAdmin, listFines); 
+router.put("/:fineId", protect, isAdmin, updateFine);
+
+/* USER ROUTES */
+router.get("/my-fines", protect); 
+router.post("/pay/:fineId", protect); //todo: payment gateway required
+
+
 
 export default router;

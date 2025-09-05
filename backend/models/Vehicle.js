@@ -1,30 +1,36 @@
  import mongoose from "mongoose";
 
-const vehicleSchema = new mongoose.Schema(
-  {
+const vehicleSchema = new mongoose.Schema({
+    ownerId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required: true
+    },
+
     plateNumber: {
-      type: String,
-      required: true,
-      unique: true, // ✅ plateNumber is unique, not id
-      trim: true,
+        type: Number,
+        required: true,
+        unique: true,
+        trim: true,
     },
+
     type: {
-      type: String,
-      required: true,
-      enum: ["Car", "Truck", "Bike", "Bus", "Other"], // optional enum
+        type: String,
+        required: true
     },
+
+    obuId: {
+        type: String,
+        required: true,
+        unique: true
+    },
+
     status: {
-      type: String,
-      default: "Active",
-      enum: ["Active", "Inactive", "Banned"], // optional enum
+        type: String,
+        enum: ["active","blacklisted","suspended"],
+        default: "active" 
     },
-  },
-  {
-    timestamps: true,
-    id: false, // ✅ prevents Mongoose from creating a virtual 'id' field
-  }
-);
+},{timestamps: true});
 
-const Vehicle = mongoose.model("Vehicle", vehicleSchema);
-
-export default Vehicle;
+const Vehicle = mongoose.model("Vehicle",vehicleSchema);
+export { Vehicle };
