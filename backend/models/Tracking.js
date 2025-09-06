@@ -1,7 +1,7 @@
  import mongoose from "mongoose";
 
 const trackingSchema = new mongoose.Schema({
-    vehicleId: {
+    vehicle: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Vehicle",
         required: true
