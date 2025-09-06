@@ -1,8 +1,8 @@
 // routes/violationRoutes.js
  import express from "express";
  import { issueFine, listFines, updateFine } from "../controllers/fineController.js";
-import { protect } from "../middlewares/authMiddleware.js";
-import { isAdmin } from "../middlewares/adminMiddleware.js";
+import { protect } from "../middleware/authMiddleware.js";
+import { isAdmin } from "../middleware/adminMiddleware.js";
 
 const router = express.Router();
 

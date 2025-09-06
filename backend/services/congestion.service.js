@@ -1,5 +1,5 @@
-import { Toll } from "../models/toll.model.js";
-import { Tracking } from "../models/tracking.model.js";
+import  Toll  from "../models/Toll.js";
+import  Tracking  from "../models/Tracking.js";
 
 
 export const updateTollCongestion = async (tollId, level) => {

@@ -1,7 +1,7 @@
 import * as trackingService from "../services/tracking.service.js";
 import * as congestionService from "../services/congestion.service.js";
 import * as notificationService from "../services/notification.service.js";
-import { Vehicle } from "../models/Vehicle.js";
+import  Vehicle  from "../models/Vehicle.js";
 
 export const createTracking = async (req, res) => {
     try {
@@ -22,7 +22,7 @@ export const createTracking = async (req, res) => {
     }
 };
 
-export const getVehicleTracking = async (req, res) => {
+export const getAllTracking = async (req, res) => {
     try {
         const tracking = await trackingService.getLatestTracking(req.params.vehicleId);
         res.json(tracking);

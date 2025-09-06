@@ -1,8 +1,8 @@
  import express from "express";
 import Vehicle from "../models/Vehicle.js";
-import { protect } from "../middlewares/authMiddleware.js";
-import { isAdmin } from "../middlewares/adminMiddleware.js";
-import { registerVehicle, getMyVehicles, getVehicle, deleteVehicle, updateVehicle } from "../controllers/vehicleController.js";
+import { protect } from "../middleware/authMiddleware.js";
+import { isAdmin } from "../middleware/adminMiddleware.js";
+import { addVehicle, getMyVehicles, getVehicle, deleteVehicle, updateVehicle } from "../controllers/vehicleController.js";
 const router = express.Router();
 
  
@@ -45,7 +45,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 /* USER ROUTES */
-router.post("/register", protect, registerVehicle);
+router.post("/register", protect, addVehicle);
 router.get("/get-my-vehicles", protect, getMyVehicles);
 
 /* ADMIN ROUTES */

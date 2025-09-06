@@ -33,4 +33,4 @@ const vehicleSchema = new mongoose.Schema({
 },{timestamps: true});
 
 const Vehicle = mongoose.model("Vehicle",vehicleSchema);
-export { Vehicle };
+export  default Vehicle ;

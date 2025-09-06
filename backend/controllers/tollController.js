@@ -1,4 +1,4 @@
-import { Toll } from "../models/Toll.js";
+import  Toll  from "../models/Toll.js";
 
 export const addToll = async (req, res) => {
     try {

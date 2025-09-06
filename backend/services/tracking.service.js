@@ -1,4 +1,4 @@
-import { Tracking } from "../models/tracking.model.js";
+import  Tracking  from "../models/Tracking.js";
 export const saveTracking = async (vehicleId, lat, lng, speed) => {
   const tracking = new Tracking({
     vehicle: vehicleId,

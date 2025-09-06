@@ -1,4 +1,4 @@
- import { Fine } from "../models/Fine.js";
+ import  Fine  from "../models/Fine.js";
 
 export const issueFine = async (req, res) => {
     try {

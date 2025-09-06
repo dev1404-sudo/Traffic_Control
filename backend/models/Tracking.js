@@ -45,4 +45,4 @@ trackingSchema.virtual("lng").get(function () {
   return this.location.coordinates[0];
 });
 const Tracking = mongoose.model("Tracking",trackingSchema);
-export { Tracking };
+export default Tracking;

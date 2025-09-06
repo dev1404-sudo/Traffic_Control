@@ -1,8 +1,8 @@
 // notification.service.js
-import { Fine } from "../models/fine.model.js";
-import { Toll } from "../models/toll.model.js";
-import { Transaction } from "../models/transaction.model.js";
-import { User } from "../models/user.model.js";
+import  Fine  from "../models/Fine.js";
+import  Toll  from "../models/Toll.js";
+import   PaymentTransaction  from "../models/PaymentTransaction.js";
+import  User  from "../models/User.js";
 
 // Utility to send socket notifications
 export const sendSocketNotification = (io, userId, payload) => {

@@ -18,7 +18,7 @@ export const addVehicle = async (req, res) => {
 
 // @desc   Get all vehicles
 // @route  GET /api/vehicles
-export const getVehicles = async (req, res) => {
+export const getMyVehicles = async (req, res) => {
   try {
     const vehicles = await Vehicle.find().populate("assignedDriver", "name");
     res.json(vehicles);

@@ -33,4 +33,4 @@ const tollSchema = new mongoose.Schema({
 
 tollSchema.index({location: "2dsphere"});
 const Toll = mongoose.model("Toll",tollSchema);
-export { Toll };
+export default Toll;

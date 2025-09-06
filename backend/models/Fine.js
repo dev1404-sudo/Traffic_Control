@@ -56,4 +56,4 @@ fineSchema.index({location: "2dsphere"});
 
 const Fine = mongoose.model("Fine",fineSchema);
 
-export { Fine };
+export default Fine;

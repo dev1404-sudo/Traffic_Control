@@ -71,4 +71,4 @@ paymentTransactionSchema.index({ wallet: 1, status: 1 });
 paymentTransactionSchema.index({ razorpayOrderId: 1 });
 
 const PaymentTransaction = mongoose.model("PaymentTransaction", paymentTransactionSchema);
-export default PaymentTransaction;
+export default PaymentTransaction ;
